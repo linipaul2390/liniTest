@@ -5,16 +5,18 @@
 </head>
 <body>
   <div ng-controller="myCtrl">
+    <input type="number" step="1" min="0" max="3" ng-model="rowLimit">
   <table>
     <thead>
-    <tr><th>Subjects</th><th>Likes</th><th>Dislikes</th><th>Like/disliks</th></tr></thead>
+    <tr><th>Name</th><th>Date of Birth</th><th>Gender</th><th>Currency(No filter)</th>
+    <th>Currency(Currency filter)</th></tr></thead>
     <tbody>
-      <tr ng-repeat="subject in subjects">
-        <td>{{subject.name}}</td><td>{{subject.likes}}</td><td>{{subject.dislikes}}</td>
-        <td>
-          <input type="button" value="likes" ng-click="incrementLikes(subject)">
-          <input type="button" value="dislikes" ng-click="incrementDisikes(subject)">
-        </td>
+      <tr ng-repeat="employee in employees | limitTo:rowLimit">
+        <td>{{employee.name | uppercase}}</td>
+        <td>{{employee.gender | lowercase}}</td>
+        <td>{{employee.dateOfBirth | date:"dd/MM/yyyy"}}</td>
+        <td>{{employee.salary |number:2}}</td>
+        <td>{{employee.salary |currency}}</td>
       </tr>
     </tbody>
   </table>

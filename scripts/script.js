@@ -1,19 +1,13 @@
 var app = angular.module("myModule", [])
 .controller("myCtrl", function($scope) {
-    var subjects = [
-      {name:"Maths",likes:0,dislikes:0},
-      {name:"Chemistry",likes:0,dislikes:0},
-      {name:"Physics",likes:0,dislikes:0},
-      {name:"Biology",likes:0,dislikes:0}
+    var employees = [
+  {name:"Ben",dateOfBirth:new Date("November 23, 1980"),gender:"Male",salary:55500.788},
+  {name:"Lini",dateOfBirth:new Date("December 23, 1985"),gender:"Female",salary:4000.0},
+  {name:"Kathir",dateOfBirth:new Date("January 2, 1989"),gender:"Male",salary:8000.8},
+  {name:"Shankar",dateOfBirth:new Date("December 23, 1985"),gender:"Male",salary:9999.99}
     ];
 
-    $scope.subjects = subjects;
-    $scope.incrementLikes = function(subject){
-      subject.likes++;
-
-    }
-    $scope.incrementDisikes = function(subject){
-      subject.dislikes++;
-    }
+    $scope.employees = employees;
+    $scope.rowLimit = 2;
 
 });
